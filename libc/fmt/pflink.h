@@ -17,8 +17,8 @@
     if (___PFLINK(FMT, strpbrk, "faAeg")) STATIC_YOINK("__fmt_dtoa"); \
     if (___PFLINK(FMT, strpbrk, "cmrqs")) {                           \
       if (___PFLINK(FMT, strstr, "%m")) STATIC_YOINK("strerror");     \
-      if (!IsTiny() && (___PFLINK(FMT, strstr, "%*") ||               \
-                        ___PFLINK(FMT, strpbrk, "0123456789"))) {     \
+      if (___PFLINK(FMT, strstr, "%*") ||                             \
+          ___PFLINK(FMT, strpbrk, "0123456789")) {                    \
         STATIC_YOINK("strnwidth");                                    \
         STATIC_YOINK("strnwidth16");                                  \
         STATIC_YOINK("wcsnwidth");                                    \
